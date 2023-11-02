@@ -1,0 +1,26 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konga | Home Page</title>
+    <link rel="stylesheet" href="{% static 'Store/main.css' %}">
+</head>
+<body>
+    <h1> Welcome to the home page</h1>
+    <div style="display: grid;grid-row: 2; height: auto;width: auto; grid-column: 3; background-color: blueviolet;">
+        {% for product in all_products %}
+        <h2><a href="{% url 'detail' product.id %}">{{product.name}}</a>
+        {{product.price}}
+        
+        <img src="{{ product.image.url }}" alt="">
+        {% endfor %}
+        
+        <h3>{{ product.price}}</h3>
+            
+        </h2>
+    </div>
+    
+</body>
+</html>
